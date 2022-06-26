@@ -32,6 +32,9 @@ const longestCommonPrefix = (strs) => {
 // Solution with indexOf
 const longestCommonPrefix = (strs) => {
   let longestPrefix = strs[0];
+  if(strs.length==0){
+    return "";
+  } 
 
   for(index = 0; index <strs.length; index ++) {
     while(strs[index].indexOf(longestPrefix) !== 0) {
