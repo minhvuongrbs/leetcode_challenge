@@ -1,11 +1,11 @@
-
-
+// Solution with two for loop
+/*
 const longestCommonPrefix = (strs) => {
   let longestPrefix = '';
   if(strs.length === 0) return '';
+  const firstString = strs[0];
 
   for(let indexOfFirstString = 0; indexOfFirstString < strs[0].length; indexOfFirstString++) {
-    const firstString = strs[0];
     let isCommonPrefix = true;
     
     for(let index = 1; index < strs.length; index++) {
@@ -24,6 +24,21 @@ const longestCommonPrefix = (strs) => {
     else break;
   }
   if(longestPrefix.length === 0) return '';
+  return longestPrefix;
+}
+
+*/
+
+// Solution with indexOf
+const longestCommonPrefix = (strs) => {
+  let longestPrefix = strs[0];
+
+  for(index = 0; index <strs.length; index ++) {
+    while(strs[index].indexOf(longestPrefix) !== 0) {
+      longestPrefix = longestPrefix.substring(0, longestPrefix.length - 1);
+    }
+  }
+
   return longestPrefix;
 }
 
