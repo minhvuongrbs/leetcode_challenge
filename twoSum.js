@@ -17,7 +17,7 @@
 
  */
 
-// Hashmap => faster
+// Hashmap => faster => O(1) for most of the case.
 const twoSum = (nums, target) => {
   const hashmap = new Map();
   for (let index = 0; index < nums.length; index++) {
