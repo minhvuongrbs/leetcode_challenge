@@ -1,0 +1,1 @@
+Dynamic programming is the way of resolving a big problem by resolving multiple smaller problems in the same way. And dynamic programming will also use memory variables to store results of smaller problems to make the program run faster.

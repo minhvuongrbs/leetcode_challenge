@@ -1,8 +1,11 @@
+// 509. Fibonacci Number
+
 // easiest way to calculate fibonacci
-// const fibonacci = (n) => {
-//   if (n <= 1) return 1;
-//   return fibonacci(n - 1) + fibonacci(n - 2);
-// };
+const basicRecursionFibonacci = (n) => {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  return basicRecursionFibonacci(n - 1) + basicRecursionFibonacci(n - 2);
+};
 
 // dynamic programing
 /* 
@@ -19,8 +22,29 @@ const fibonacci = (n) => {
 };
 */
 
+/**
+ * use caching
+ * @param {*} n
+ * @param {*} caching
+ * @returns
+ * Exp: If n is too high, stack is out
+ * because it all store in stack. => Tràn call stack.
+ * => recursion is slow.
+ */
+
+const memoizeFibonacci = (n, caching = [0, 1]) => {
+  if (caching.length > n) {
+    return caching[n];
+  }
+
+  return memoizeFibonacci(n, [
+    ...caching,
+    caching[caching.length - 2] + caching[caching.length - 1],
+  ]);
+};
+
 // Iterative algorithm
-const fibonacci = (n) => {
+const basicLoopFibonacci = (n) => {
   const sequences = [0, 1];
   for (let index = 2; index <= n; index++) {
     sequences[index] = sequences[index - 1] + sequences[index - 2];
@@ -29,6 +53,44 @@ const fibonacci = (n) => {
   return sequences[n];
 };
 
-for (let index = 0; index < 200; index++) {
-  console.log(fibonacci(index));
-}
+/**
+ * Changing array is slow.
+ * @param {*} n 
+ * @returns 
+ */
+
+const fastLoopFibonacci = (n) => {
+  let first = 0,
+    second = 1,
+    index = 1;
+
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+
+  while (index < n) {
+    index++;
+
+    second = first + second;
+    first = second - first;
+  }
+
+  return second;
+};
+
+const n = 100_000_000;
+
+// console.time('basicRecursionFibonacci');
+// console.log(basicRecursionFibonacci(n));
+// console.timeEnd('basicRecursionFibonacci');
+
+// console.time('memoizeFibonacci');
+// console.log(memoizeFibonacci(n));
+// console.timeEnd('memoizeFibonacci');
+
+console.time('basicLoopFibonacci');
+console.log(basicLoopFibonacci(n));
+console.timeEnd('basicLoopFibonacci');
+
+console.time('fastLoopFibonacci');
+console.log(fastLoopFibonacci(n));
+console.timeEnd('fastLoopFibonacci');
