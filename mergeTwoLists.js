@@ -13,10 +13,8 @@ function ListNode(val, next) {
  */
 
 var mergeTwoLists = function (list1, list2) {
-  let counter = 0;
   let sortedList = new ListNode();
   while (list1 || list2) {
-    console.log(counter++)
     if (list1 === null || list1.val > list2.val) {
       sortedList.next = list2;
       list2 = list2.next;
