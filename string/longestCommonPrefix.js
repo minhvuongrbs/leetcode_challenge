@@ -1,3 +1,9 @@
+/**
+ * 14. Longest Common Prefix
+ * @param {*} strs 
+ * @returns 
+ */
+
 // Solution with two for loop
 /*
 const longestCommonPrefix = (strs) => {
