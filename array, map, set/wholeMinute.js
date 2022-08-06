@@ -1,3 +1,9 @@
+/**
+ * 1010. Pairs of Songs With Total Durations Divisible by 60
+
+ * @param {*} songs 
+ * @returns 
+ */
 function playlist(songs) {
   let result = 0;
   let seen = new Map();

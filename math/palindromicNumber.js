@@ -1,3 +1,9 @@
+/**
+ * 9. Palindrome Number
+
+ * @param {*} number 
+ * @returns 
+ */
 const palindromicNumber = (number) => {
   let originalNumber = number;
   let reversedNumber = 0;
