@@ -48,8 +48,11 @@ const firstMissingPositive = (nums) => {
 /**
  * output will be from 1=> length+1
  * pushing data into set, because complexity of quering set is O(1)
+ * hash set is very useful with arry(many numbers in the data list)
+ * we already know the list of output. then use set.has function
  * 
- * Total complexity is O(n)
+ * Total complexity is O(n). But memory is O(n) as well, because we need to increase the memory based on number of items in collection.
+ * What is the cons of HashSet: it take O(n) memory.
  * 
  * @param {*} nums 
  * @returns 
